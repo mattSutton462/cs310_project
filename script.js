@@ -2,8 +2,7 @@
     window.addEventListener('load', init);
 
     function init(){
-        let homeBtn = document.getElementById('logo');
-        homeBtn.addEventListener('click', goHome);
+        id('logo').addEventListener('click', goHome);
 
     }
 
