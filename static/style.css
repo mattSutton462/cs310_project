@@ -29,3 +29,9 @@ footer{
     left: 0;
     right: 0;
 }
+
+#logo{
+    width: 10%;
+    height: auto;
+    float: left;
+}
