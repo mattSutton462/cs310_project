@@ -19,7 +19,8 @@ body{
     padding-top: 2em;
     margin-left: auto;
     margin-right: auto;
-    background-color: #6499E9;
+    background-color: white;
+    border: solid black;
 }
 
 footer{
