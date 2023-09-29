@@ -6,7 +6,7 @@ main{
 body{
     text-align: center;
     /* background-color: #222222; */
-    background-color: #6499E9;
+    background-color: #0A2240;
     color: white;
     font-family:'Lora', serif;
 }
@@ -19,7 +19,7 @@ body{
     padding-top: 2em;
     margin-left: auto;
     margin-right: auto;
-    background-color: white;
+    background-color: #004B98;
     border: solid black;
 }
 
