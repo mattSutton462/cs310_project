@@ -1,8 +1,12 @@
 (function(){
+  "use strict";
+
     window.addEventListener('load', init);
 
     function init(){
-        id('logo').addEventListener('click', goHome);
+      $('#navbar').load('navbar.html');
+      $('#foot').load('footer.html');
+      id('logo').addEventListener('click', goHome);
 
     }
 
