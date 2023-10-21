@@ -6,21 +6,25 @@ main{
 body{
     text-align: center;
     /* background-color: #222222; */
-    background-color: #0A2240;
+    background-color: white;
     color: white;
     font-family:'Lora', serif;
 }
 
+#pres-text{
+    background-color: #0A2240;
+    margin-top: 5em;
+    padding: 2em;
+}
+
 #president{
     display: flex;
-    border-radius: 5%;
     padding-left: 3em;
     padding-right: 3em;
     padding-top: 2em;
     margin-left: auto;
     margin-right: auto;
-    background-color: #004B98;
-    border: solid black;
+    background-color: #0A2240;
 }
 
 footer{
