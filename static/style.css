@@ -35,3 +35,7 @@ footer{
     height: auto;
     float: left;
 }
+
+li {
+   margin: 1px;
+}

@@ -4,9 +4,11 @@
     window.addEventListener('load', init);
 
     function init(){
-      $('#navbar').load('navbar.html');
+      $('#navbar').load('navbar.html', ()=> {
+        id('logo').addEventListener('click', goHome);
+      });
       $('#foot').load('footer.html');
-      id('logo').addEventListener('click', goHome);
+      
 
     }
 
