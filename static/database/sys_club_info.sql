@@ -35,6 +35,7 @@ CREATE TABLE `club_info` (
 
 LOCK TABLES `club_info` WRITE;
 /*!40000 ALTER TABLE `club_info` DISABLE KEYS */;
+INSERT INTO `club_info` VALUES (1,1,'President'),(2,2,'Vice President'),(3,3,'Secretary'),(4,4,'Treasurer');
 /*!40000 ALTER TABLE `club_info` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -47,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-13 11:06:24
+-- Dump completed on 2023-10-20 22:00:12

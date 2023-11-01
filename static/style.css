@@ -6,21 +6,25 @@ main{
 body{
     text-align: center;
     /* background-color: #222222; */
-    background-color: #0A2240;
+    background-color: white;
     color: white;
     font-family:'Lora', serif;
 }
 
-#president{
+#cbn-text{
+    background-color: #0A2240;
+    margin-top: 5em;
+    padding: 2em;
+}
+
+#cabinet{
     display: flex;
-    border-radius: 5%;
     padding-left: 3em;
     padding-right: 3em;
     padding-top: 2em;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #004B98;
-    border: solid black;
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: #0A2240;
 }
 
 footer{
@@ -30,12 +34,21 @@ footer{
     right: 0;
 }
 
+footer{
+    padding-top: 10px;
+    background-color: #222222;
+}
+
 #logo{
     width: 10%;
     height: auto;
     float: left;
+<<<<<<< HEAD
 }
 
 li {
    margin: 1px;
 }
+=======
+}
+>>>>>>> f39e9f96a41d4905e53b79e4c13c85b03bb8fe26
