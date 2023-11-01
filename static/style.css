@@ -43,12 +43,9 @@ footer{
     width: 10%;
     height: auto;
     float: left;
-<<<<<<< HEAD
 }
 
-li {
-   margin: 1px;
+a:link{
+    text-decoration: none;
+    margin-right: 5px;
 }
-=======
-}
->>>>>>> f39e9f96a41d4905e53b79e4c13c85b03bb8fe26
