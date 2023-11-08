@@ -10,3 +10,13 @@
 //     if (err) throw err;
 //     console.log("Connected!");
 //   });
+
+const sqlite = require("sqlite");
+const sqlite3 = require("sqlite3");
+
+function checkStatus(response) {
+    if (!response.ok) {
+        throw Error("Error in request: " + response.statusText);
+    }
+    return response.json;
+}
