@@ -50,3 +50,7 @@ a:link{
     text-decoration: none;
     margin-right: 5px;
 }
+
+.hidden{
+    display:none;
+}
