@@ -9,15 +9,19 @@ body{
     background-color: white;
     color: white;
     font-family:'Lora', serif;
+    
 }
 
-.cbn-text{
+.text{
     background-color: #0A2240;
-    margin-top: 2em;
+    margin: 1%;
     padding: 2em;
+    /* grid-auto-flow: row dense;
+    grid: auto-flow / 1fr 1fr 1fr; */
+    
 }
 
-#cabinet{
+/* #cabinet{
     display: flex;
     padding-left: 3em;
     padding-right: 3em;
@@ -25,16 +29,13 @@ body{
     margin-left: 100px;
     margin-right: 100px;
     background-color: #0A2240;
-}
+} */
 
 footer{
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-}
-
-footer{
     padding-top: 10px;
     background-color: #222222;
 }
