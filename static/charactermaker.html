@@ -28,10 +28,61 @@
             </p>
             <button id="roll_stats">ROLL THOSE STATS!!!!</button>
         </div>
-        <div id = "charsheet" class = "text hidden">
+        <div id = "charselect" class = "text hidden">
             <h1> HERE'S YOUR STATS!</h1>
             <ol id = "stats">
             </ol>
+        <!-- </div>
+        <div id = "selction_box" class = "text hidden"> -->
+            <h2>Choose a Class:</h2>
+            <select id = "classSelect">
+                <option value = "">--Please choose an option--</option>
+                <option value = "barbarian">Barbarian</option>
+                <option value = "bard">Bard</option>
+                <option value = "cleric">Barbarian</option>
+                <option value = "druid">Druid</option>
+                <option value = "fighter">Fighter</option>
+                <option value = "monk">Monk</option>
+                <option value = "paladin">Paladin</option>
+                <option value = "ranger">Ranger</option>
+                <option value = "rogue">Rogue</option>
+                <option value = "sorcerer">Sorcerer</option>
+                <option value = "warlock">Warlock</option>
+                <option value = "wizard">Wizard</option>
+            </select>
+            <button id = "class_btn">Pick selected class!</button>
+
+            <h2>Choose a Race:</h2>
+            <select id = "raceSelect">
+                <option value = "">--Please choose an option--</option>
+                <option value = "dragonborn">Dragonborn</option>
+                <option value = "dwarf">Dwarf</option>
+                <option value = "elf">Elf</option>
+                <option value = "gnome">Gnome</option>
+                <option value = "half-elf">Half-elf</option>
+                <option value = "half-orc">Half-orc</option>
+                <option value = "halfling">Halfling</option>
+                <option value = "human">Human</option>
+                <option value = "tiefling">Tiefling</option>
+            </select>
+            <button id = "race_btn">Pick selected race!</button>
+
+            <h2>Choose a Background</h2>
+            <select id = "backgroundSelect">
+                <option value = "">--Please choose an option--</option>
+                <option value = "acolyte">Acolyte</option>
+                <option value = "">MORE SOON!!</option>
+            </select>
+            <button id = "background_btn">Pick selected background!</button>
+        </div>
+
+        <div id = "charsheet" class = "text hidden">
+            <h2>Class Info</h2>
+            <div id = "class_info"></div>
+            <h2>Race Info</h2>
+            <div id = "race_info"></div>
+            <h2>Background Info</h2>
+            <div id = "background_info"></div>
         </div>
         
     </main>

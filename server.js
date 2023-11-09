@@ -14,6 +14,9 @@
 const sqlite = require("sqlite");
 const sqlite3 = require("sqlite3");
 
+app.use(express.static('static'));
+
+
 function checkStatus(response) {
     if (!response.ok) {
         throw Error("Error in request: " + response.statusText);

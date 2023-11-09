@@ -1,6 +1,9 @@
 (function(){
   "use strict";
 
+    const BASE_URL = "https://www.dnd5eapi.co/api/";
+
+
     window.addEventListener('load', init);
 
     function init(){
@@ -23,6 +26,18 @@
       rollStats(qs("input[name='dice']:checked").value);
     });
 
+
+    id("class_btn").addEventListener('click', ()=>{
+      classSelect(id('classSelect').value);
+    });
+
+    id("race_btn").addEventListener('click', ()=>{
+      raceSelect(id('raceSelect').value);
+    });
+
+    id("background_btn").addEventListener('click', ()=>{
+      backgroundSelect(id('backgroundSelect').value);
+    });
     }
 
     function goHome(){
@@ -31,7 +46,7 @@
 
     function rollStats(dice){
       id("charhome").classList.add("hidden");
-      id('charsheet').classList.remove("hidden");
+      id('charselect').classList.remove("hidden");
       let stats = id("stats");
       if(dice == "d20"){
         for(let i = 0; i<6; i++){
@@ -64,6 +79,128 @@
 
     }
 
+    function classSelect(charClass){
+      // console.log(charClass);
+      let url = BASE_URL + "classes/" + charClass + "/";
+      id('class_info').innerHTML = "";
+
+      if(charClass != ""){
+        id('charsheet').classList.remove('hidden');
+        fetch(url)
+        .then(checkStatus)
+        .then((classInfo)=>{
+          console.log(classInfo);
+          for(let i = 0; i < 5; i++){
+            let data = document.createElement('p');
+            if(i == 0){
+              data.innerText = classInfo.name;
+            }
+            else if(i == 1){
+              data.innerText = "Hit die: d" + classInfo.hit_die;
+            }
+            else if(i == 2){
+              let prof = "Proficiencies: ";
+              for (let j = 0; j<classInfo.proficiencies.length; j++){
+                if((j+1) ==  classInfo.proficiencies.length){
+                  prof += classInfo.proficiencies[j].name;
+                } 
+                else {
+                prof += classInfo.proficiencies[j].name + ', ';
+                }
+              }
+              data.innerText = prof;
+            }
+            else if (i == 3){
+              data.innerText = "Proficiency Choices: " + classInfo.proficiency_choices[0].desc;
+            }
+            else if (i == 4){
+              let equip = "Starting Equipment: ";
+              equip += classInfo.starting_equipment[0].equipment.name + ', ';
+              for(let j = 0; j<classInfo.starting_equipment_options.length; j++){
+                if((j+1) == classInfo.starting_equipment_options.length){
+                  equip += classInfo.starting_equipment_options[j].desc;
+                }
+                else{
+                  equip += classInfo.starting_equipment_options[j].desc + ', ';
+                }
+              }
+              data.innerText = equip;
+            }
+            id('class_info').appendChild(data);
+          }
+        });
+
+        }
+    }
+
+    function raceSelect(charRace){
+      // console.log(charRace);
+      let url = BASE_URL + "races/" + charRace + "/";
+      id('race_info').innerHTML = "";
+
+      if(charRace != ""){
+        id('charsheet').classList.remove('hidden');
+        fetch(url)
+        .then(checkStatus)
+        .then((raceInfo)=>{
+          console.log(raceInfo);
+          for(let i = 0; i < 5; i++){
+            let data = document.createElement('p');
+            if(i == 0){
+              data.innerText = raceInfo.name;
+            }
+            else if(i == 1){
+              data.innerText = raceInfo.age;
+            }
+            else if(i == 2){
+              data.innerText = raceInfo.size_description;
+            }
+            else if(i == 3){
+              data.innerText = raceInfo.language_desc;
+            }
+            else if(i == 4){
+              let traits = "Traits: ";
+              for(let j = 0; j<raceInfo.traits.length; j++){
+                if((j+1) == raceInfo.traits.length){
+                  traits += raceInfo.traits[j].name;
+                } 
+                else {
+                  traits += raceInfo.traits[j].name + ', ';
+                }
+              }
+              data.innerText = traits;
+            }
+
+            id('race_info').appendChild(data);
+          }
+        });
+      }
+
+    }
+
+    function backgroundSelect(charBackground){
+      // console.log(charBackground);
+      let url = BASE_URL + "backgrounds/" + charBackground + "/";
+      id('background_info').innerHTML = "";
+
+      if(charBackground != ""){
+        id('charsheet').classList.remove('hidden');
+        fetch(url)
+        .then(checkStatus)
+        .then((backgroundInfo)=>{
+          console.log(backgroundInfo);
+          for(let i = 0; i < 5; i++){
+            let data = document.createElement('p');
+            if(i == 0){
+              
+            }
+
+            id('background_info').appendChild(data);
+          }
+        });
+      }
+    }
+
 
     /* ------------------------------ Helper Functions ------------------------------ */
   /**
@@ -92,4 +229,11 @@
   function qsa(query) {
     return document.querySelectorAll(query);
   }
+
+  function checkStatus(response) {
+    if (!response.ok) {
+        throw Error("Error in request: " + response.statusText);
+    }
+    return response.json();
+}
 })()
