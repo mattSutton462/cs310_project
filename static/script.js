@@ -115,7 +115,12 @@
             }
             else if (i == 4){
               let equip = "Starting Equipment: ";
-              equip += classInfo.starting_equipment[0].equipment.name + ', ';
+              if(classInfo.starting_equipment.length > 0){
+                for(let j = 0; j<classInfo.starting_equipment.length; j++){
+                  equip += classInfo.starting_equipment[j].equipment.name + ', ';
+                }
+              }
+              
               for(let j = 0; j<classInfo.starting_equipment_options.length; j++){
                 if((j+1) == classInfo.starting_equipment_options.length){
                   equip += classInfo.starting_equipment_options[j].desc;
@@ -190,11 +195,48 @@
         .then((backgroundInfo)=>{
           console.log(backgroundInfo);
           for(let i = 0; i < 5; i++){
-            let data = document.createElement('p');
+            let data = document.createElement('ol');
+            
             if(i == 0){
-              
+              data.innerText = "Personality Traits:"
+              for(let j = 0; j <backgroundInfo.personality_traits.from.options.length; j++){
+                let option = document.createElement('li');
+                option.innerText = backgroundInfo.personality_traits.from.options[j].string;
+                data.appendChild(option);
+              }
             }
-
+            else if(i == 1){
+              data.innerText = "Flaws:"
+              for(let j = 0; j <backgroundInfo.flaws.from.options.length; j++){
+                let option = document.createElement('li');
+                option.innerText = backgroundInfo.flaws.from.options[j].string;
+                data.appendChild(option);
+              }
+            }
+            else if(i == 2){
+              data.innerText = "Ideals:"
+              for(let j = 0; j <backgroundInfo.ideals.from.options.length; j++){
+                let option = document.createElement('li');
+                option.innerText = backgroundInfo.ideals.from.options[j].desc;
+                data.appendChild(option);
+              }
+            }
+            else if(i == 3){
+              data.innerText = "Bonds:"
+              for(let j = 0; j <backgroundInfo.bonds.from.options.length; j++){
+                let option = document.createElement('li');
+                option.innerText = backgroundInfo.bonds.from.options[j].string;
+                data.appendChild(option);
+              }
+            }
+            else if(i == 4){
+              data.innerText = "Feature: " + backgroundInfo.feature.name;
+              for(let j = 0; j<backgroundInfo.feature.desc.length; j++){
+                let desc = document.createElement('li');
+                desc.innerText = backgroundInfo.feature.desc[j];
+                data.appendChild(desc);
+              }
+            }
             id('background_info').appendChild(data);
           }
         });
