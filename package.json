@@ -6,5 +6,15 @@
     "nodemon": "^3.0.1",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.6"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "cs310_project",
+  "description": "This is a club website for Elizabethtown college. D&D is a table-top fantasy role-playing game involving a group of people both players and Dungeon Master, Game Master, etc. who collevtively tell a story through the rolling of dice and role-playing.",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "author": "Matthew",
+  "license": "ISC"
 }
