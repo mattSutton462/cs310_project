@@ -30,7 +30,8 @@ app.get('/events', async function (req, res){
     const type = req.query.list;
     try{
         if (type == all) {
-            const query = "SELECT * FROM events;";
+            let all_events = await getEvents();
+            res.type('json').send(all_events);
         }
 
     } catch (error){
@@ -71,3 +72,19 @@ async function getDBConnection() {
 
 //     return names;
 // }
+
+
+async function getEvents() {
+    const db = await getDBConnection();
+
+    const query = "SELECT * FROM events;";
+    const rows = await db.all(query);
+    await db.close();
+
+    const events = rows.map(item => item);
+    return events;
+}
+
+
+app.listen(PORT);
+console.log('Server started at http://localhost:' + PORT);
