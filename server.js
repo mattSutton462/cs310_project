@@ -33,7 +33,6 @@ app.get('/events', async function (req, res){
             const query = "SELECT * FROM events;";
         }
 
-
     } catch (error){
         console.log(error);
         res.status(500).send('Error on the server. Please try again later.');
@@ -48,3 +47,27 @@ function checkStatus(response) {
     }
     return response.json;
 }
+
+async function getDBConnection() {
+    const db = await sqlite.open({
+        filename: DB_PATH,
+        driver: sqlite3.Database
+    });
+
+    return db;
+}
+
+//  FOR REFERENCE
+// async function getNames() {
+//     const db = await getDBConnection();
+
+//     const query = "SELECT name FROM menu ORDER BY name;";
+//     const rows = await db.all(query);
+//     // console.log(rows);
+//     await db.close(); // close the database connection
+
+//     const names = rows.map(item => item.name);
+//     console.log(names);
+
+//     return names;
+// }
