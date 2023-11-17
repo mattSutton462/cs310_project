@@ -30,7 +30,7 @@ app.get('/events', async function (req, res){
     const type = req.query.list;
     try{
         if (type == all) {
-            const query = "SELECT * FROM events;"
+            const query = "SELECT * FROM events;";
         }
 
 
