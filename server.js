@@ -29,7 +29,9 @@ app.use(express.static('static'));
 app.get('/events', async function (req, res){
     const type = req.query.list;
     try{
-        
+        if (type == all) {
+            const query = "SELECT * FROM events;"
+        }
 
 
     } catch (error){
