@@ -47,3 +47,11 @@ a:link {
 .hidden {
     display: none;
 }
+
+p{
+    text-align:left;
+}
+
+li{
+    text-align:left;
+}
