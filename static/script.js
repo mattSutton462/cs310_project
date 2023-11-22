@@ -14,7 +14,7 @@
       
 
       let radio = qsa("input[name = 'dice']");
-      for(let i = 0; i < radio.length; i++){
+    for(let i = 0; i < radio.length; i++){
       radio[i].addEventListener('click', function(){
         let clear = qs("input[name ='dice']:checked");
         clear.checked = "";
