@@ -4,7 +4,7 @@
     window.addEventListener("load", init);
 
     function init(){
-        fetchEvents();(BASE_URL).then(checkStatus);
+        fetchEvents();
     }
 
     function fetchEvents(){
