@@ -14,7 +14,7 @@ app.use(multer().none()); // for multipart/form-data (required with FormData)
 app.use(express.static('static'));
 
 app.get('/events', async function (req, res){
-    const type = req.query.list;
+    const type = req.query.type;
     try{
         if (type == "all") {
             let all_events = await getEvents();
