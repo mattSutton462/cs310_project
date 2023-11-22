@@ -8,7 +8,8 @@
     }
 
     function fetchEvents(){
-        fetch(BASE_URL).then(checkStatus);
+        fetch(BASE_URL)
+        .then(checkStatus);
     }
 
     function checkStatus(response) {
