@@ -16,7 +16,7 @@ app.use(express.static('static'));
 app.get('/events', async function (req, res){
     const type = req.query.list;
     try{
-        if (type == all) {
+        if (type == "all") {
             let all_events = await getEvents();
             res.type('json').send(all_events);
         }
