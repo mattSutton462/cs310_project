@@ -1,27 +1,28 @@
-(function(){
+(function () {
     const BASE_URL = "http://localhost:8080/events?type=all";
 
     window.addEventListener("load", init);
 
-    function init(){
+    function init() {
         fetchEvents();
     }
 
-    function fetchEvents(){
+    function fetchEvents() {
         fetch(BASE_URL)
         .then(checkStatus)
-        .then((data)=>{
-            data = data;
-            fillEvents(data);
+        .then((data) => {
+             fillEvents(data);
         });
     }
 
-    function fillEvents(data){
-        for (let i = 0; i < data.length; i++) {
+    function fillEvents(data) {
+        const eventSpace = document.getElementById('event-space');
+
+        data.forEach((event) => {
             let e = document.createElement("p");
-            e.innerHTML = data.location + " " + data.event_date + " " + data.event_time + " " + data.event_type;
-            document.getElementById('event-space').appendChild(e);
-        }
+            e.innerHTML = event.event_type + " on " + event.event_date + " at " + event.location + " at " + event.event_time;
+            eventSpace.appendChild(e);
+        });
     }
 
     function checkStatus(response) {
@@ -30,4 +31,4 @@
         }
         return response.json();
     }
-})()
+})();
