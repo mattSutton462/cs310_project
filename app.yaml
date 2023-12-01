@@ -1,10 +1,40 @@
-runtime: php55
-api_version: 1
-threadsafe: true
+runtime: nodejs18
+
+env_variables:
+  INSTANCE_UNIX_SOCKET: /cloudsql/cs310-400317:us-east1:cs310
+  DB_USER: root
+  DB_PASS: d4nGe0n$&J4yZ
+  DB_NAME: etown_dnd
+
 handlers:
+- url: /images
+  static_dir: static/images
+- url: /scripts
+  static_dir: static/scripts
+- url: /style.css
+  static_files: static/style.css
+  upload: static/style.css
+- url: /navbar.html
+  static_files: static/navbar.html
+  upload: static/navbar.html
+- url: /footer.html
+  static_files: static/footer.html
+  upload: static/footer.html
+- url: /events.html
+  static_files: static/events.html
+  upload: static/events.html
+- url: /charactermaker.html
+  static_files: static/charactermaker.html
+  upload: static/charactermaker.html
+- url: /about.html
+  static_files: static/about.html
+  upload: static/about.html
+- url: /contact.html
+  static_files: static/contact.html
+  upload: static/contact.html
+- url: /index.html
+  static_files: static/index.html
+  upload: static/index.html
 - url: /
   static_files: static/index.html
   upload: static/index.html
-- url: /(.*)
-  static_files: static/\1
-  upload: static/(.*)

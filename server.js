@@ -3,6 +3,8 @@ const multer = require("multer");
 const sqlite = require("sqlite");
 const sqlite3 = require("sqlite3");
 
+// const createUnixSocketPool = require("./connect-unix");
+
 const app = express();
 const PORT = process.env.PORT || 8080;
 const DB_PATH = "database.db";
@@ -29,12 +31,12 @@ app.get('/events', async function (req, res){
 });
 
 
-function checkStatus(response) {
-    if (!response.ok) {
-        throw Error("Error in request: " + response.statusText);
-    }
-    return response.json;
-}
+// function checkStatus(response) {
+//     if (!response.ok) {
+//         throw Error("Error in request: " + response.statusText);
+//     }
+//     return response.json;
+// }
 
 async function getDBConnection() {
     const db = await sqlite.open({
@@ -46,12 +48,16 @@ async function getDBConnection() {
 }
 
 async function getEvents() {
-    const db = await getDBConnection();
-
     const query = "SELECT * FROM events;";
-    const rows = await db.all(query);
-    await db.close();
+   
+    const db = await createUnixSocketPool();
+    const rows = await db.query(query);
+    await db.end();
 
+    // const db = await getDBConnection();
+    // const rows = await db.all(query);
+    // await db.close();
+    
     const events = rows.map(item => item);
     return events;
 }
